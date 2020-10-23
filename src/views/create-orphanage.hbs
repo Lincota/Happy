@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lar do Lincota|| Happy</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+
+    <link
+      rel="shortcut icon"
+      href="/images/logo-icon.png"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="/css/main.css" />
+
+    <link rel="stylesheet" href="/css/animation.css" />
+    <link rel="stylesheet" href="/css/sidebar.css" />
+    <link rel="stylesheet" href="/css/map.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <link rel="stylesheet" href="/css/button.css" />
+
+    <link rel="stylesheet" href="/css/page-create-orphanage.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body id="body">
+    <div id="page-create-orphanage">
+      <aside class="animate-right sidebar">
+        <img src="/images/map-marker.svg" alt="Happy" srcset="" />
+
+        <footer>
+          <button onClick="history.back()">
+            <img src="/images/arrow-back.svg" alt="voltar" srcset="" />
+          </button>
+        </footer>
+      </aside>
+
+      <main class="animate-appear with-sidebar">
+        <form action="save-orphanage" method="post" >
+          <fieldset>
+            <legend>Dados</legend>
+            <div class="map-container">
+              <div id="mapid"></div>
+              <input type="hidden" name="lat">
+              <input type="hidden" name="lng">
+              <footer>
+                <a href="#" id="select-point"
+                  >Clique para ver sua mae pelada seu fdp</a
+                >
+              </footer>
+            </div>
+
+            <div class="input-block">
+              <label for="name">Nome</label>
+              <input id="name" name="name" required/>
+            </div>
+
+            <div class="input-block">
+              <label for="about"
+                >Sobre <span>Maximo 300 caracteres!</span>
+              </label>
+              <textarea name="about" id="about" required></textarea>
+            </div>
+
+            <div class="input-block">
+              <label for="whatsapp">Zap</label>
+              <input id="whatsapp" name="whatsapp" required/>
+            </div>
+
+            <div class="input-block images">
+
+              <label for="images">Sua foto</label>
+
+              <div class="images-upload" id="images">
+                <div class="new-upload">
+                  <input name="images" placeholder="salve kebrada poe uma foto aqui" required/>
+                  <span onclick="deleteField(event)"><img src="/images/red-x.svg" alt="remover imagem" srcset=""></span>
+                </div>
+                
+              </div>
+
+              <button onclick="addPhotoField()" type="button">
+                <img src="/images/pl.svg" alt="" srcset="" />
+              </button>
+
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Visitação</legend>
+
+            <div class="input-block">
+              <label for="instructions">instructions</label>
+              <textarea name="instructions" id="instructions" required></textarea>
+            </div>
+
+            <div class="input-block">
+              <label for="opening_hours">opening_hours</label>
+              <input id="opening_hours" name="opening_hours" required/>
+            </div>
+
+            <div class="input-block">
+              <label for="open_on_weekends">open_on_weekends</label>
+              <input type="hidden" id="open_on_weekends" name="open_on_weekends" value="1" required/>
+
+              <div class="button-select">
+                <button data-value="1" onclick="toggleSelect(event)" type="button" class="active">sim</button><button data-value="0" onclick="toggleSelect(event)" type="button">nao</button>
+              </div>
+              <button type="submit" class="primary-button">Continuar</button>
+            </div>
+          </fieldset>
+        </form>
+      </main>
+    </div>
+    <script src="/scripts/page-create-orphanage.js"></script>
+  </body>
+</html>
